@@ -1,4 +1,14 @@
-# ATProto Feed Generator
+# Posta Feed
+
+> An @proto feed generator prototype that produces a feed of posts that conform to a specific
+> meta-thread convention common on bluesky.
+
+If someone is posting to a specific type of quote-post thread on bluesky, this thread will ( hopefully ) capture that post. The posts this feed is specifically looking for are:
+
+ * that *start with* the text 'if you see this, post a'.
+ * include the hashtag '#posta'
+
+## OLD DOCS ATProto Feed Generator
 
 This is a starter kit for creating ATProto Feed Generators. It's not feature complete, but should give you a good starting ground off of which to build and deploy a feed.
 

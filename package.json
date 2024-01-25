@@ -15,14 +15,18 @@
     "@atproto/api": "^0.6.20",
     "@atproto/identity": "^0.2.1",
     "@atproto/lexicon": "^0.2.2",
-    "@atproto/repo": "^0.3.2",
+    "@atproto/repo": "^0.3.1",
     "@atproto/syntax": "^0.1.2",
-    "@atproto/xrpc-server": "^0.3.2",
+    "@atproto/xrpc-server": "^0.3.1",
+    "@types/lodash": "^4.14.202",
     "better-sqlite3": "^8.3.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "kysely": "^0.22.0",
-    "multiformats": "^9.9.0"
+    "lodash-es": "^4.17.21",
+    "multiformats": "^9.9.0",
+    "nanospinner": "^1.1.0",
+    "ora": "^8.0.1"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.4",
