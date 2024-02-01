@@ -44,6 +44,10 @@ main {
   font-style: italic;
 }
 
+.prose {
+    max-width: max-content;
+}
+
 /* h1, h2 {
   font-weight: bold;
 }
