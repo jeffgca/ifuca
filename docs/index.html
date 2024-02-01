@@ -4,24 +4,70 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="It’s (j)ust (e)leventy and (t)ailwind … OK, and a few other things; it’s still really small though.">
-    <title>Home</title>
+    <title>Posta - a feed of viral threads for Bluesky</title>
     <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
-    <main>
-      <div class="max-w-lg mx-auto mt-6 px-4 text-center">
-  <h1 class="font-semibold text-3xl">It’s (j)ust (e)leventy and (t)ailwind</h1>
-  <p>…OK, and a few other things; it's still *really* small though.</p>
+    <div class="md:container md:mx-auto" id="wrapper">
+      <main>
+        
+<div class="hero bg-base-200">
+  <div class="hero-content text-center">
+    <div class="max-w-md">
+      <h1 class="text-5xl font-bold">Posta!!</h1>
+      <p class="py-6">A feed of viral threads for Bluesky.</p>
+      <!-- <button class="btn btn-primary">Get Started</button> -->
+    </div>
+  </div>
 </div>
-<p class="flex items-center justify-center max-w-md mt-6 mx-auto px-4">
-  <a href="https://11ty.dev/" class="bg-gray-900 inline-block mr-6"><img src="img/11ty.svg" alt="Eleventy" class="h-24" /></a>
-  and
-  <a href="https://tailwindcss.com/" class="ml-6"><img src="img/tailwindcss.svg" alt="Tailwind CSS" class="w-64" /></a>
-</p>
-<p class="flex justify-center max-w-md mt-16 mx-auto">
-  <a href="https://github.com/marcamos/jet#readme" class="mr-6 underline">View on GitHub</a>
-  <a href="https://marcamos-jet.netlify.com/" class="underline">View on Netlify</a>
-</p>
-    </main>
+
+<div class="prose">
+  <h2>What is Posta?</h2>
+
+
+  <p>'Posta' is a love letter to some of the emergent social customs on Bluesky, in particular in the for of 'if you see this, post a $something'. Here's an example:</p>
+
+  <p class="display-img">
+    <img src="./img/example.png" alt="A screenshot of an example post from the social network Bluesky.">
+    <a class="link" href="https://staging.bsky.app/profile/jeffg.ca/post/3kk5ovhvxl422">Link</a>
+  </p>
+
+  <p>Like any other atproto feed generator, Post gets a firehose of all feeds on Bluesky and produces a feed that people can subscribe to. Posta will currently only select posts that follow a specific convention:</p>
+
+  <ol>
+    <li>If the post starts with the text 'if you see this, post a ' ( regardless of capitalization )</li>
+    <li>If the post includes the hashtag '#posta'</li>
+  </ol>
+
+  <h2>HowTo</h2>
+
+  <p>TBD: still need to figure out how to publish the feed / why it hasn't been published yet, etc.</p>
+  
+  <h2>FAQ</h2>
+
+  <p class="question">Q: Why did you do this?</p>
+  <p class="answer">A: I'm a fairly early but shy user of Bluesky, but I love some of the unique social conventions that have been invented on the platform so far, or imported from other platforms ( you know the ones ). The first time I participated in a thread of this specific type, I immediately wished there was a better way to discover more of these. So I made this!</p>
+
+  <p class="">( more FAQs  as events warrant )</p>
+
+</div>
+
+<div class="hero bg-base-200 footer">
+  <div class="hero-content">
+    <div class="max-w-md prose">
+      <h2>Links</h2>
+      <ul>
+        <li>The source code is on <a href="">Github</a></li>
+        <li>Based on the <a href="">atproto feed generator example</a>.</li>
+        <li>This site uses <a href="https://tailwindcss.com/">Tailwind</a>, 
+          <a href="https://daisyui.com/">DaisyUI</a> 
+          and <a href="https://github.com/marcamos/jet/">Jet</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      </main>
+    </div>
   </body>
 </html>

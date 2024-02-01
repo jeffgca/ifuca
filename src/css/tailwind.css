@@ -3,3 +3,63 @@
 @tailwind components;
 
 @tailwind utilities;
+
+#wrapper {
+  padding: 0 2em 0 2em;
+}
+
+.hero {
+  margin-bottom: 2em;
+  padding-top: 3em;
+}
+
+html, main * {
+  font-size: medium;
+}
+
+main {
+  margin-bottom: 2em;
+}
+
+.display-img a {
+  font-size: smaller;
+  font-style: italic;
+  padding: 0;
+}
+
+.display-img img {
+  margin: 0;
+}
+
+.footer {
+  padding-top: 0.5em;
+}
+
+.prose {
+  line-height: 1.25;
+  padding-bottom: 2em;
+}
+
+.prose p.question {
+  font-style: italic;
+}
+
+/* h1, h2 {
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 2em;
+}
+
+h1 {
+  font-size: large;
+}
+
+h2 {
+  font-size: medium;
+}
+
+p {
+  font-size: small;
+} */
