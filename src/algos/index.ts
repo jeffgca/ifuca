@@ -3,7 +3,7 @@ import {
   QueryParams,
   OutputSchema as AlgoOutput,
 } from '../lexicon/types/app/bsky/feed/getFeedSkeleton'
-import * as posta from './posta'
+import * as posta from './posta-feed'
 
 type AlgoHandler = (ctx: AppContext, params: QueryParams) => Promise<AlgoOutput>
 
