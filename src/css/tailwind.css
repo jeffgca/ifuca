@@ -48,6 +48,21 @@ main {
     max-width: max-content;
 }
 
+/* attempt to be responive */
+
+@media screen and (min-width: 600px) {
+
+  html * {
+    /* color: red; */
+  }
+
+  .display-img {
+  }
+
+  .first-para {
+  }
+}
+
 /* h1, h2 {
   font-weight: bold;
 }
