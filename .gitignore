@@ -131,3 +131,6 @@ dist
 
 # Apple Bullshit
 .DS_Store
+
+# npm bullshit
+package-lock.json

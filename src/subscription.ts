@@ -4,24 +4,24 @@ import {
 } from './lexicon/types/com/atproto/sync/subscribeRepos'
 import { FirehoseSubscriptionBase, getOpsByType } from './util/subscription'
 
+import hasSupportedHashtags from './util/hashtags'
+
 import * as _ from 'lodash-es'
-// import { createSpinner } from 'nanospinner'
-
-let scanned = 0, matched = 0
-
-// const spinner = createSpinner(`Scanned ${scanned} posts, matched ${matched} so far.`).start()
 
 /**
  * detector function for matching the post text as efficiently as possible
  */
-function detector(post) {
-  let _text = post.record.text.toLowerCase()
+function posta_detector(post) {
+  let lowercase = post.record.text.toLowerCase()
+  let hashtags = [ '#posta', '#ifyouseethis' ]
+  let preamble = 'if you see this'.toLowerCase()
 
-  if (_text.includes('#posta') || _text.startsWith('if you see this, post a')) {
+  // can be case-sensitive?
+  let hasHashTags = hasSupportedHashtags(post.record.text, hashtags)
+  let hasPreamble = lowercase.startsWith(preamble)
+
+  if (hasHashTags || hasPreamble) {
     return true
-  }
-  else {
-    return false
   }
 }
 
@@ -30,19 +30,11 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     if (!isCommit(evt)) return
     const ops = await getOpsByType(evt)
 
-    for (const post of ops.posts.creates) {
-      scanned++
-      if (detector(post)) {
-        matched++
-      }
-    }
-
     // automagic house-keeping, apparently
     const postsToDelete = ops.posts.deletes.map((del) => del.uri)
     const postsToCreate = ops.posts.creates
       .filter((create) => {
-        // only alf-related posts
-        return detector(create)
+        return posta_detector(create)
       })
       .map((create) => {
         // map alf-related posts to a db row

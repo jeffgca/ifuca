@@ -5,7 +5,7 @@ dotenv.config()
 
 let loops = 0, found = 0
 
-const DEV_URL = 'http://localhost:3000/xrpc/app.bsky.feed.getFeedSkeleton?feed=at://did:example:alice/app.bsky.feed.generator/posta'
+const DEV_URL = 'http://localhost:3000/xrpc/app.bsky.feed.getFeedSkeleton?feed=at://did:plc:r33d6wynfbi5mfinrjqfbmt5/app.bsky.feed.generator/posta-feed'
 
 function scan() {
   fetch(DEV_URL).then((result) => {
