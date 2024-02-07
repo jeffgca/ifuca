@@ -15,7 +15,7 @@ If someone is posting to a specific type of quote-post thread on bluesky, this t
  * [ ] Digital Ocean Apps support ( / docker / wtf )
  * [ ] Possible to have scanner behaviour driven by config?
  * [ ] JS > TS / *I am annoyed as a JS developer with how much TS gets in my way with this codebase*
-
+ * [ ] Some stats?
 
 ## Links
 
