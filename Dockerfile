@@ -4,12 +4,14 @@ WORKDIR /app
 COPY package.json .
 
 RUN yarn install
+RUN yarn build
 
 # Bare neccesary
 COPY src/ ./src
+COPY dist ./dist
 COPY .env .
 
 EXPOSE 3000
 
 # Nu kör vi
-CMD ["yarn" , "start"]
+CMD ["node" , "dist/index.js"]
