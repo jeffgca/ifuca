@@ -2,10 +2,9 @@ import {
   OutputSchema as RepoEvent,
   isCommit,
 } from './lexicon/types/com/atproto/sync/subscribeRepos'
+
 import { FirehoseSubscriptionBase, getOpsByType } from './util/subscription'
-
 import hasSupportedHashtags from './util/hashtags'
-
 import * as _ from 'lodash-es'
 
 /**
