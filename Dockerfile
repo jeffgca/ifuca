@@ -3,6 +3,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 RUN mkdir -p ./dist
+RUN mkdir -p ./sqlite
 
 COPY package.json .
 COPY tsconfig.json .
