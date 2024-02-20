@@ -40,6 +40,15 @@ export class FeedGenerator {
       didCache,
     })
 
+    app.use((req, res, next) => {
+      if (req.originalUrl === '/') {
+        res.send('OK')
+      }
+      else {
+        next()
+      }
+    })
+
     const server = createServer({
       validateResponse: true,
       payload: {
