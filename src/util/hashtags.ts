@@ -1,5 +1,7 @@
 function getHashTags(txt: string) {
-  return txt.split(/\s/).filter(v=> v.startsWith('#'))
+  return txt.split(/\s/).filter(v => { 
+    return v.startsWith('#')
+  })
 }
 
 export default function hasSupportedHashtags(txt: string, supported) {

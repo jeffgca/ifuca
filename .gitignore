@@ -136,3 +136,6 @@ dist
 package-lock.json
 yarn.lock
 sqlite/posta.sqlite
+
+# I just always have soem hack scripts
+hack
