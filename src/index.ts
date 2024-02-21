@@ -21,6 +21,7 @@ const run = async () => {
     serviceDid,
   })
   await server.start()
+  console.log(`Server listening at http://${server.cfg.listenhost}:${server.cfg.port}/`)
 }
 
 const maybeStr = (val?: string) => {
