@@ -31,6 +31,7 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
   }))
 
   let cursor: string | undefined
+  console.log(feed)
   const last = res.at(-1)
   if (last) {
     cursor = `${new Date(last.indexedAt).getTime()}::${last.cid}`

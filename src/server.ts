@@ -31,22 +31,17 @@ export class FeedGenerator {
 
   static create(cfg: Config) {
     const app = express()
-    const db = createDb(cfg.sqliteLocation)
-    const firehose = new FirehoseSubscription(db, cfg.subscriptionEndpoint)
-
-    const didCache = new MemoryCache()
-    const didResolver = new DidResolver({
-      plcUrl: 'https://plc.directory',
-      didCache,
-    })
 
     app.use((req, res, next) => {
-      if (req.originalUrl === '/') {
-        res.send('OK')
-      }
-      else {
-        next()
-      }
+      res.send({
+        cursor:
+          '1736788677461::bafyreiardf5bo26qxtq7fnzpc557dvaxyja3yfsmnw7qkqnzwjg7cycxym',
+        feed: [
+          {
+            post: 'at://did:plc:r33d6wynfbi5mfinrjqfbmt5/app.bsky.feed.post/3lfnd4dkpi22t',
+          },
+        ],
+      })
     })
 
     const server = createServer({
@@ -57,17 +52,9 @@ export class FeedGenerator {
         blobLimit: 5 * 1024 * 1024, // 5mb
       },
     })
-    const ctx: AppContext = {
-      db,
-      didResolver,
-      cfg,
-    }
-    feedGeneration(server, ctx)
-    describeGenerator(server, ctx)
-    app.use(server.xrpc.router)
-    app.use(wellKnown(ctx))
 
-    return new FeedGenerator(app, db, firehose, cfg)
+    server.use(app)
+    return server
   }
 
   async start(): Promise<http.Server> {

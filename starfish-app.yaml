@@ -1,0 +1,64 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+envs:
+- key: LOG_STYLE
+  scope: RUN_AND_BUILD_TIME
+  value: raw
+features:
+- buildpack-stack=ubuntu-22
+ingress:
+  rules:
+  - component:
+      name: posta-atproto-feed
+      preserve_path_prefix: true
+    match:
+      path:
+        prefix: /xrpc/app.bsky.feed.getFeedSkeleton?feed=at://did:plc:r33d6wynfbi5mfinrjqfbmt5/app.bsky.feed.generator/posta
+  - component:
+      name: posta-atproto-feed
+    match:
+      path:
+        prefix: /
+name: starfish-app
+region: tor
+services:
+- dockerfile_path: Dockerfile
+  envs:
+  - key: FEEDGEN_PORT
+    scope: RUN_AND_BUILD_TIME
+    value: "3000"
+  - key: FEEDGEN_LISTENHOST
+    scope: RUN_AND_BUILD_TIME
+    value: 0.0.0.0
+  - key: FEEDGEN_SQLITE_LOCATION
+    scope: RUN_AND_BUILD_TIME
+    value: ./sqlite/posta.sqlite
+  - key: FEEDGEN_SUBSCRIPTION_ENDPOINT
+    scope: RUN_AND_BUILD_TIME
+    value: wss://bsky.network
+  - key: FEEDGEN_HOSTNAME
+    scope: RUN_AND_BUILD_TIME
+    value: posta.jeffg.ca
+  - key: FEEDGEN_PUBLISHER_DID
+    scope: RUN_AND_BUILD_TIME
+    value: did:plc:r33d6wynfbi5mfinrjqfbmt5
+  - key: FEEDGEN_SUBSCRIPTION_RECONNECT_DELAY
+    scope: RUN_AND_BUILD_TIME
+    value: "3000"
+  - key: BLUESKY_APP_PASSWORD
+    scope: RUN_AND_BUILD_TIME
+    value: wjii-3nao-ltjs-f6bn
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: jeffgca/posta-atproto-feed
+  health_check:
+    http_path: /
+    initial_delay_seconds: 5
+    port: 3000
+  http_port: 3000
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: posta-atproto-feed
+  source_dir: /
